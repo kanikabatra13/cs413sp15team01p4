@@ -5,6 +5,22 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.View;
 import android.widget.TextView;
+import android.app.Activity;
+import android.media.AudioManager;
+import android.media.MediaPlayer;
+import android.media.RingtoneManager;
+import android.net.Uri;
+import android.os.Bundle;
+import android.util.Log;
+import android.view.Menu;
+import android.view.View;
+import android.widget.TextView;
+import android.media.Ringtone;
+import java.io.IOException;
+import java.io.Serializable;
+
+import java.io.Serializable;
+
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 import edu.luc.etl.cs313.android.simplestopwatch.common.Constants;
 import edu.luc.etl.cs313.android.simplestopwatch.common.StopwatchUIUpdateListener;
@@ -19,6 +35,8 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.StopwatchModelFacade;
 public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListener {
 
     private static String TAG = "stopwatch-android-activity";
+    private static Ringtone ringtone;
+    private static boolean ringing;
 
 	/**
 	 * The state-based dynamic model.
@@ -64,11 +82,11 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
             @Override
             public void run() {
                 final TextView tvS = (TextView) findViewById(R.id.seconds);
-                final TextView tvM = (TextView) findViewById(R.id.minutes);
+             //   final TextView tvM = (TextView) findViewById(R.id.minutes);
                 final int seconds = time % Constants.SEC_PER_MIN;
                 final int minutes = time / Constants.SEC_PER_MIN;
                 tvS.setText(Integer.toString(seconds / 10) + Integer.toString(seconds % 10));
-                tvM.setText(Integer.toString(minutes / 10) + Integer.toString(minutes % 10));
+             //   tvM.setText(Integer.toString(minutes / 10) + Integer.toString(minutes % 10));
             }
         });
 	}
@@ -93,7 +111,54 @@ public class StopwatchAdapter extends Activity implements StopwatchUIUpdateListe
         model.onStartStop();
     }
 
-	public void onLapReset(final View view)  {
-        model.onLapReset();
+	//public void onLapReset(final View view)  {model.onLapReset();
+
+
+
+    @Override
+    public void onSaveInstanceState(final Bundle savedInstanceState) {
+        Log.i(TAG, "onSaveInstanceState");
+
+        // save model information
+        savedInstanceState.putSerializable(getString(R.string.model_key), (Serializable) model);
+
+        final TextView seconds = (TextView) findViewById(R.id.seconds);
+        final TextView stateName = (TextView) findViewById(R.id.stateName);
+        // save whether the app is ringing
+        savedInstanceState.putBoolean(getString(R.string.ringing_key), ringing);
+        // save display state
+        savedInstanceState.putString(getString(R.string.state_key), stateName.getText().toString());
+        // save display time
+        savedInstanceState.putString(getString(R.string.seconds_key), seconds.getText().toString());
+        super.onSaveInstanceState(savedInstanceState);
+        ringtone.stop();
     }
+
+    /**
+     * Restores the model state after situations such device rotation.
+     */
+    @Override
+    public void onRestoreInstanceState(final Bundle savedInstanceState) {
+        Log.i(TAG, "onRestoreInstanceState");
+        super.onRestoreInstanceState(savedInstanceState);
+
+        final TextView seconds = (TextView) findViewById(R.id.seconds);
+        final TextView stateName = (TextView) findViewById(R.id.stateName);
+
+        // restore model information
+        model = (StopwatchModelFacade) savedInstanceState.getSerializable(getString(R.string.model_key));
+        // restore display time
+        seconds.setText(savedInstanceState.getString(getString(R.string.seconds_key)));
+        // restore display state
+        stateName.setText(savedInstanceState.getString(getString(R.string.state_key)));
+        // restore whether the app is ringing
+        ringing = savedInstanceState.getBoolean(getString(R.string.ringing_key));
+
+        if (ringing) {
+            ringtone.play();
+        }
+
+        model.setUIUpdateListener(this);
+    }
+
 }
