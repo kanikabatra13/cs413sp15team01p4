@@ -39,7 +39,7 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 
 	// forward event uiUpdateListener methods to the current state
 	@Override public void onStartStop() { state.onStartStop(); }
-	@Override public void onLapReset()  { state.onLapReset(); }
+//	@Override public void onLapReset()  { state.onLapReset(); }
 	@Override public void onTick()      { state.onTick(); }
 
 	@Override public void updateUIRuntime() { uiUpdateListener.updateTime(timeModel.getRuntime()); }
@@ -48,21 +48,21 @@ public class DefaultStopwatchStateMachine implements StopwatchStateMachine {
 	// known states
 	private final StopwatchState STOPPED     = new StoppedState(this);
 	private final StopwatchState RUNNING     = new RunningState(this);
-	private final StopwatchState LAP_RUNNING = new LapRunningState(this);
-	private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
+//	private final StopwatchState LAP_RUNNING = new LapRunningState(this);
+//	private final StopwatchState LAP_STOPPED = new LapStoppedState(this);
 
 	// transitions
 	@Override public void toRunningState()    { setState(RUNNING); }
 	@Override public void toStoppedState()    { setState(STOPPED); }
-	@Override public void toLapRunningState() { setState(LAP_RUNNING); }
-	@Override public void toLapStoppedState() { setState(LAP_STOPPED); }
+//	@Override public void toLapRunningState() { setState(LAP_RUNNING); }
+//	@Override public void toLapStoppedState() { setState(LAP_STOPPED); }
 
 	// actions
 	@Override public void actionInit()       { toStoppedState(); actionReset(); }
 	@Override public void actionReset()      { timeModel.resetRuntime(); actionUpdateView(); }
 	@Override public void actionStart()      { clockModel.start(); }
 	@Override public void actionStop()       { clockModel.stop(); }
-	@Override public void actionLap()        { timeModel.setLaptime(); }
+//	@Override public void actionLap()        { timeModel.setLaptime(); }
 	@Override public void actionInc()        { timeModel.incRuntime(); actionUpdateView(); }
 	@Override public void actionUpdateView() { state.updateView(); }
 }

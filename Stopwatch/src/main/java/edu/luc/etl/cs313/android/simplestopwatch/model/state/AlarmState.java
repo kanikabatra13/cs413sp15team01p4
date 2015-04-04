@@ -4,21 +4,20 @@ import edu.luc.etl.cs313.android.simplestopwatch.R;
 
 public class AlarmState implements StopwatchState {
 
-public AlarmState(final StopwatchSMStateView sm) {
+public AlarmState(final StopwatchSMStateView sm)
+{
     this.sm = sm;
 }
+
+    private final StopwatchSMStateView sm;
 
     @Override
     public void onStartStop() {
         sm.actionStart();
         sm.toRunningState();
-    }
-
-    @Override
-    public void onLapReset() {
-        sm.actionReset();
         sm.toStoppedState();
     }
+
 
     @Override
     public void onTick() {

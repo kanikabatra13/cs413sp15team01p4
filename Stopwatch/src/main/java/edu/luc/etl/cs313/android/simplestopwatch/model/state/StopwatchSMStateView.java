@@ -11,19 +11,26 @@ interface StopwatchSMStateView {
 	// transitions
 	void toRunningState();
 	void toStoppedState();
-	void toLapRunningState();
-	void toLapStoppedState();
+    void toAlarmState();
+    void toActiveState();
+	/*void toLapRunningState();
+	void toLapStoppedState(); */
 
 	// actions
 	void actionInit();
 	void actionReset();
 	void actionStart();
 	void actionStop();
-	void actionLap();
+	//void actionLap();
 	void actionInc();
 	void actionUpdateView();
+    void actionStopInc();
+    void actionResetStopTime();
+    void actionDecrement();
+    void actionAlarm();
 
 	// state-dependent UI updates
 	void updateUIRuntime();
-	void updateUILaptime();
+	void updateUIAlarmTime();
+    void updateUIStopTime();
 }
