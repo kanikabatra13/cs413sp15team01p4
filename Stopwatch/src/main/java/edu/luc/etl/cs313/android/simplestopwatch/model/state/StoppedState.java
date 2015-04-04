@@ -1,41 +1,48 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
+/**
+ *
+ * An implementation of the Stopped state for the timer.
+ *@author Team10
+ * Created by alshaymaaalhazzaa on 3/30/14.
+ */
+class StoppedState implements TimerState {
 
-class StoppedState implements StopwatchState {
+    public StoppedState(final TimerSMStateView sm) {
+        this.sm = sm;
+    }
 
-	public StoppedState(final StopwatchSMStateView sm) {
-		this.sm = sm;
-	}
+    private final TimerSMStateView sm;
 
-	private final StopwatchSMStateView sm;
-
-	@Override
-	public void onStartStop() {
-		sm.actionStart();
-		sm.actionInc();
+    @Override
+    public void onStartStop() {
+        sm.actionStart();
+        sm.actionInc();
         sm.actionResetStopTime();
         sm.toStoppedState();
-	}
 
-/*	@Override
-	public void onLapReset() {
-		sm.actionReset();
-		sm.toStoppedState();
-	} */
+    }
 
-	@Override
-	public void onTick() {
-		throw new UnsupportedOperationException("onTick");
-	}
+/*
+when the user stop pressing the button to increment seconds ,stop increment
+& wait for 3 Seconds
+ */
 
-	@Override
-	public void updateView() {
-		sm.updateUIRuntime();
-	}
+    @Override
+    public void onTick() {
+        sm.actionStopInc();
+        sm.ThreeSecondsElapseState();
 
-	@Override
-	public int getId() {
-		return R.string.STOPPED;
-	}
+    }
+
+    @Override
+    public void updateView() {
+        sm.updateUIStopTime();
+    }
+
+    @Override
+    public int getId() {
+        return R.string.STOPPED;
+    }
 }

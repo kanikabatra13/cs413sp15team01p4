@@ -9,17 +9,17 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.time.DefaultTimeModel;
  * Concrete testcase subclass for the default time model implementation.
  *
  * @author laufer
- * @see http://xunitpatterns.com/Testcase%20Superclass.html
+ * @seehttp://xunitpatterns.com/Testcase%20Superclass.html
  */
 public class DefaultTimeModelTest extends AbstractTimeModelTest {
 
-	@Before
-	public void setUp() throws Exception {
-		setModel(new DefaultTimeModel());
-	}
+    @Before
+    public void setUp() throws Exception {
+        setModel(new DefaultTimeModel());
+    }
 
-	@After
-	public void tearDown() throws Exception {
-		setModel(null);
-	}
+    @After
+    public void tearDown() throws Exception {
+        setModel(null);
+    }
 }

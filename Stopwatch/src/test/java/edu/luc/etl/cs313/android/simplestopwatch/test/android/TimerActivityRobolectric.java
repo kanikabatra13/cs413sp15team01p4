@@ -1,12 +1,11 @@
 package edu.luc.etl.cs313.android.simplestopwatch.test.android;
 
-import edu.luc.etl.cs313.android.simplestopwatch.android.StopwatchAdapter;
+import edu.luc.etl.cs313.android.simplestopwatch.android.TimerAdapter;
 
 import org.junit.Before;
 import org.junit.runner.RunWith;
 import org.robolectric.Robolectric;
 import org.robolectric.RobolectricTestRunner;
-
 /**
  * Concrete Robolectric test subclass. For the Gradle unitTest task to work,
  * the Robolectric dependency needs to be isolated here instead of being present in src/main.
@@ -15,21 +14,21 @@ import org.robolectric.RobolectricTestRunner;
  * @see http://pivotal.github.com/robolectric
  */
 @RunWith(RobolectricTestRunner.class)
-public class StopwatchActivityRobolectric extends AbstractStopwatchActivityTest {
+public class TimerActivityRobolectric extends AbstractTimerActivityTest {
 
-	private static String TAG = "stopwatch-android-activity-robolectric";
+    private static String TAG = "Timer-android-activity-robolectric";
 
-	private StopwatchAdapter activity;
+    private TimerAdapter activity;
 
-	@Before
-	public void setUp() {
-		activity = Robolectric.buildActivity(StopwatchAdapter.class).create().start().visible().get();
-	}
+    @Before
+    public void setUp() {
+        activity = Robolectric.buildActivity(TimerAdapter.class).create().start().visible().get();
+    }
 
-	@Override
-	protected StopwatchAdapter getActivity() {
-		return activity;
-	}
+    @Override
+    protected TimerAdapter getActivity() {
+        return activity;
+    }
 
     @Override
     protected void runUiThreadTasks() {

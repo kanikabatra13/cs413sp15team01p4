@@ -6,8 +6,10 @@ package edu.luc.etl.cs313.android.simplestopwatch.common;
  * notifications coming from the model.
  *
  * @author laufer
+ *@modified by Team10
  */
-public interface StopwatchUIUpdateListener {
-	void updateTime(int timeValue);
-	void updateState(int stateId);
+public interface TimerUIUpdateListener {
+    void updateTime(int timeValue);
+    void updateState(int stateId);
+    void AlarmSound();
 }

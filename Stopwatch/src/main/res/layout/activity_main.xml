@@ -15,6 +15,7 @@
             android:id="@+id/stateName"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#AB5B84"
             android:textSize="40sp" />
     </RelativeLayout>
 
@@ -35,9 +36,10 @@
             android:id="@+id/seconds"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:textColor="#93E16E"
             android:text="@string/seconds"
             android:textSize="80sp"
-            android:textStyle="bold" />
+            android:textStyle="normal" />
     </RelativeLayout>
 
     <RelativeLayout
@@ -45,6 +47,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/timer"
+        android:background="#AB5B84"
         android:layout_centerHorizontal="true" >
 
         <Button
