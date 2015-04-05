@@ -38,8 +38,8 @@
             android:layout_height="wrap_content"
             android:textColor="#93E16E"
             android:text="@string/seconds"
-            android:textSize="80sp"
-            android:textStyle="normal" />
+            android:textSize="100sp"
+            android:textStyle="bold" />
     </RelativeLayout>
 
     <RelativeLayout
