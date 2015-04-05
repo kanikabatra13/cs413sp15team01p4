@@ -4,12 +4,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.common.TimerUIUpdateListener;
 import edu.luc.etl.cs313.android.simplestopwatch.model.clock.ClockModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
 
-/**
- * An implementation of the state machine for the Timer
- * @author laufer
- *@modified by Team10
- *
- */
+
 public class DefaultTimerStateMachine implements TimerStateMachine {
 
     public DefaultTimerStateMachine(final TimeModel timeModel, final ClockModel clockModel) {

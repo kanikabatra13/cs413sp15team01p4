@@ -1,14 +1,6 @@
 package edu.luc.etl.cs313.android.simplestopwatch.android;
 
-/**
- *
- * A thin adapter component for the Timer.
- *
- @author laufer
- *@modified by Team10
- *
 
- */
 
 import android.app.Activity;
 import android.media.AudioManager;

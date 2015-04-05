@@ -2,12 +2,6 @@ package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
 
-/**
- *
- * An implementation of the Sound state for the timer.
- *@author Team10
- * Created by alshaymaaalhazzaa on 3/30/14.
- */
 
 
 class SoundState implements TimerState {

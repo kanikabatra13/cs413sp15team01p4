@@ -5,13 +5,6 @@ import org.junit.Before;
 
 import edu.luc.etl.cs313.android.simplestopwatch.model.state.DefaultTimerStateMachine;
 
-/**
- * Concrete testcase subclass for the default stopwatch state machine
- * implementation.
- *
- * @author laufer
- * @seehttp://xunitpatterns.com/Testcase%20Superclass.html
- */
 public class DefaultTimerStateMachineTest extends AbstractTimerStateMachineTest {
 
     @Before

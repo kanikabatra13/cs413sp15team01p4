@@ -10,13 +10,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.clock.OnTickListener;
 import static org.junit.Assert.assertEquals;
 
 
-/**
- * @author laufer
- * @modified by Team10
- * Test case superclass for the autonomous clock model abstraction.
- * Unit-tests the pseudo-real-time behavior of the clock.
- * Uses a simple stub object to satisfy the clock's dependency.
- */
+
 public abstract class AbstractClockModelTest {
 
     private ClockModel model;

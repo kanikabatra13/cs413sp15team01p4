@@ -6,16 +6,7 @@ import android.test.ActivityInstrumentationTestCase2;
 import edu.luc.etl.cs313.android.simplestopwatch.test.android.AbstractTimerActivityTest;
 
 
-/**
- * Concrete Android test subclass. Has to inherit from framework class
- * and uses delegation to concrete subclass of abstract test superclass.
- * IMPORTANT: project must export JUnit 4 to make it available on the
- * device.
- *
- * @author laufer
- * @modified by Team10
- *
- */
+
 public class TimerActivityTest extends ActivityInstrumentationTestCase2<TimerAdapter> {
 
     /**

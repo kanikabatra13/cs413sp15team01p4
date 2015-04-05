@@ -8,11 +8,7 @@ import edu.luc.etl.cs313.android.simplestopwatch.model.state.TimerStateMachine;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.DefaultTimeModel;
 import edu.luc.etl.cs313.android.simplestopwatch.model.time.TimeModel;
 
-/**
- * An implementation of the model facade.
 
- * @author laufer
- */
 public class ConcreteTimerModelFacade implements TimerModelFacade {
 
     private TimerStateMachine stateMachine;

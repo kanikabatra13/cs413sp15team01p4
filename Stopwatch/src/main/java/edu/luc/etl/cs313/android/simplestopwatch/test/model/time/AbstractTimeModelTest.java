@@ -9,13 +9,7 @@ import static edu.luc.etl.cs313.android.simplestopwatch.common.Constants.SEC_PER
 import static org.junit.Assert.assertEquals;
 
 
-/**
- * Testcase superclass for the time model abstraction.
- * This is a simple unit test of an object without dependencies.
- *
- * @author laufer
- * @seehttp://xunitpatterns.com/Testcase%20Superclass.html
- */
+
 public abstract class AbstractTimeModelTest {
 
     private TimeModel model;

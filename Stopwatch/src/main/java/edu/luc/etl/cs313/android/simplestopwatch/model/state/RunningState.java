@@ -1,10 +1,7 @@
 package edu.luc.etl.cs313.android.simplestopwatch.model.state;
 
 import edu.luc.etl.cs313.android.simplestopwatch.R;
-/*
-* An implementation of the decrement state for the timer.
 
- */
 class RunningState implements TimerState {
 
     public RunningState(final TimerSMStateView sm) {

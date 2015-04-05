@@ -12,11 +12,6 @@ import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertNotNull;
 import static org.junit.Assert.assertTrue;
 
-/**
- * @author laufer
- * @modified by Team10
- * Abstract GUI-level test superclass of several essential stopwatch scenarios.
- */
 
 public abstract class AbstractTimerActivityTest {
 
